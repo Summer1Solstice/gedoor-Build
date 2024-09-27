@@ -8,4 +8,4 @@ function my_launcher_icon(){
     find $APP_WORKSPACE/app/src -regex '.*/res/.*/ic_launcher.xml' -exec \
     sed "/background/d" {} -i \;
 }
-my_launcher_icon;
+# my_launcher_icon;
