@@ -25,6 +25,7 @@ function init_workspace()
     set_env APP_UPLOAD_NAME $APP_NAME-$LatestTag
     [[ "$APP_NAME" = "legado" ]] && \
     set_env APP_TAG    $(echo $LatestTag|grep -o '3\.[0-9\.]+')
+    echo "$APP_NAME latest tag is $LatestTag"
     debug "$APP_NAME latest tag is $LatestTag"
 }
 init_workspace;
