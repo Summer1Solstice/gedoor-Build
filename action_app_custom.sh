@@ -11,6 +11,7 @@ function app_clear_18plus()
 }
 
 #修改桌面阅读名为阅读.A,安装多个阅读时候方便识别,默认启用
+# TODO: $SECRETS_RENAME 此变量未赋值 可能是导致此功能失效的原因
 function app_rename() 
 {
     if [[ "$APP_NAME" == "legado" ]] && [[ "$SECRETS_RENAME" == "true" ]]; then
