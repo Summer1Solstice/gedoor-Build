@@ -22,7 +22,7 @@ on:
       app_name: 
         description: 'Legado app name'      
         required: true 
-        default: '阅读Pro'
+        default: '阅读'
       app_suffix: 
         description: 'Legado app suffix'      
         required: true 
@@ -30,7 +30,7 @@ on:
       app_launch_name: 
         description: 'Legado app launch name'      
         required: true 
-        default: '阅读Pro'
+        default: '阅读.A'
       webdav_upload: 
         description: 'Webdav upload when build apk finish'      
         required: true
