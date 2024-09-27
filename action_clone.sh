@@ -10,7 +10,7 @@ function init_workspace()
     if [[ -n "$SECRETS_TAG" ]] && [[ "$REPO_ACTOR" = "$REPO_OWNER" ]]; then
         [[ "$SECRETS_TAG" = "master" ]] && LatestTag="master"
         if [[ "$APP_NAME" = "legado" ]]; then 
-            if [[ -n "$(echo $SECRETS_TAG|grep -o '3\.[0-9\.]+')" ]]; then
+            if [[ -n "$(echo $SECRETS_TAG|grep -o '3\.[0-9]\+\(.[0-9]\+\)*')" ]]; then
                 LatestTag=$SECRETS_TAG
             fi
         elif [[ "$APP_NAME" = "MyBookshelf" ]]; then
@@ -25,7 +25,6 @@ function init_workspace()
     set_env APP_UPLOAD_NAME $APP_NAME-$LatestTag
     [[ "$APP_NAME" = "legado" ]] && \
     set_env APP_TAG    $(echo $LatestTag|grep -o '3\.[0-9\.]+')
-    echo "$APP_NAME latest tag is $LatestTag"
     debug "$APP_NAME latest tag is $LatestTag"
 }
 init_workspace;
