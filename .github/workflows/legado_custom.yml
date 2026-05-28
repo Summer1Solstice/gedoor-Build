@@ -6,11 +6,10 @@ on:
       git_url: 
         description: 'Your legado git url'      
         required: true 
-        default: 'https://github.com/gedoor/legado.git'
       git_tag:
         description: 'Your legado git tag'      
         required: true 
-        default: '3.23.110211'
+        default: '3.25'
       app_channel:
         description: 'Your legado build channel(App)'      
         required: true 

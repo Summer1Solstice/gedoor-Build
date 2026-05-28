@@ -6,7 +6,7 @@ function init_workspace()
 {
     git clone $APP_GIT_URL $APP_WORKSPACE
     cd $APP_WORKSPACE
-    LatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+    LatestTag=$(git describe --tags --always `git rev-list --tags --max-count=1`)
     if [[ -n "$SECRETS_TAG" ]] && [[ "$REPO_ACTOR" = "$REPO_OWNER" ]]; then
         [[ "$SECRETS_TAG" = "master" ]] && LatestTag="master"
         if [[ "$APP_NAME" = "legado" ]]; then 
