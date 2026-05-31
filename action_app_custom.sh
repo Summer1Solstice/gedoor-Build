@@ -11,7 +11,6 @@ function app_clear_18plus()
 }
 
 #修改桌面阅读名为阅读.A,安装多个阅读时候方便识别,默认启用
-# TODO: $SECRETS_RENAME 此变量未赋值 可能是导致此功能失效的原因
 function app_rename() 
 {
     if [[ "$APP_NAME" == "legado" ]] && [[ "$SECRETS_RENAME" == "true" ]]; then
@@ -77,17 +76,7 @@ function app_not_apply_plugin()
             $APP_WORKSPACE/app/build.gradle -i
     fi
 }
-function build_gradle_setting()
-{
-    debug "maven中央仓库回归"
-    sed "/google()/i\        mavenCentral()" $APP_WORKSPACE/build.gradle -i
 
-    debug "Speed Up Gradle"
-    sed -e '/android {/r '"$GITHUB_WORKSPACE/.github/legado/speedup.gradle"'' \
-        -e '/kapt {/a\  useBuildCache = true' \
-        -e '/minSdkVersion/c\        minSdkVersion 26' \
-        $APP_WORKSPACE/app/build.gradle -i
-}
 #签名
 app_sign;
 
@@ -98,4 +87,3 @@ app_sign;
 app_clear_18plus;
 app_rename;
 app_live_together;
-build_gradle_setting;
