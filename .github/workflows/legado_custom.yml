@@ -54,6 +54,7 @@ jobs:
         REPO_OWNER: ${{ github.repository_owner }}
         REPO_ACTOR: ${{ github.actor }}
         SECRETS_TAG: ${{ github.event.inputs.git_tag }}
+        SECRETS_LAUNCH_NAME: ${{ github.event.inputs.app_launch_name }}
       run: source $GITHUB_WORKSPACE/action_setenv.sh
     
     - name: clone code

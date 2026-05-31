@@ -14,7 +14,7 @@ function app_clear_18plus()
 function app_rename() 
 {
     if [[ "$APP_NAME" == "legado" ]] ; then
-        debug "更改桌面启动名称"
+        debug "更改桌面启动名称 $APP_LAUNCH_NAME"
         sed 's/"app_name">阅读/"app_name">'"$APP_LAUNCH_NAME"'/' \
             $APP_WORKSPACE/app/src/main/res/values-zh/strings.xml -i
         debug "更改webdav备份目录legado为legado+后缀名"
