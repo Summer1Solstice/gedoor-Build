@@ -34,7 +34,7 @@ function app_live_together()
             $APP_WORKSPACE/app/google-services.json -i
     fi
 }
-function Unify_Version_Name()
+function unify_version_name()
 { 
     if [[ "$APP_TAG" == 3.* ]]; then
         debug "统一版本号"
@@ -59,3 +59,4 @@ app_sign;
 app_clear_18plus;
 app_rename;
 app_live_together;
+unify_version_name;
