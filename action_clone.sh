@@ -18,7 +18,7 @@ function init_workspace()
                 LatestTag=$SECRETS_TAG
             fi
         else
-            [[ "$SECRETS_ENABLE" = "true" ]] && LatestTag=$SECRETS_TAG
+            LatestTag=$SECRETS_TAG
         fi
     fi
     git checkout $LatestTag

@@ -6,7 +6,7 @@ APP_NAME="legado"
 APP_GIT_URL="https://github.com/gedoor/legado.git"
 APP_SUFFIX="A"
 APP_CHANNEL="App"
-if [ "$SECRETS_ENABLE" == "true" ] && [ -n "$SECRETS_APP_NAME" ] && [ -n "$SECRETS_GIT_URL" ] && [ "$REPO_ACTOR" == "$REPO_OWNER" ]; then
+if [ -n "$SECRETS_APP_NAME" ] && [ -n "$SECRETS_GIT_URL" ] && [ "$REPO_ACTOR" == "$REPO_OWNER" ]; then
     APP_NAME=$SECRETS_APP_NAME
     APP_GIT_URL=$SECRETS_GIT_URL
 fi
@@ -18,10 +18,6 @@ fi
 APP_LAUNCH_NAME="阅读.$APP_SUFFIX"
 if [ -n "$SECRETS_LAUNCH_NAME" ] && [ "$REPO_ACTOR" = "$REPO_OWNER" ]; then
     APP_LAUNCH_NAME=$SECRETS_LAUNCH_NAME
-fi
-
-if [ -n "$SECRETS_CHANNEL" ]; then
-    APP_CHANNEL=$SECRETS_CHANNEL
 fi
 
 APP_WORKSPACE="/opt/$APP_NAME"
@@ -39,7 +35,5 @@ set_env APP_UPLOAD_NAME $APP_UPLOAD_NAME
 set_env APP_UPLOAD      $APP_UPLOAD
 set_env REPO_ACTOR      $REPO_ACTOR
 set_env REPO_OWNER      $REPO_OWNER
-set_env SECRETS_ENABLE  $SECRETS_ENABLE
 set_env SECRETS_MINIFY  $SECRETS_MINIFY
 set_env SECRETS_TAG     $SECRETS_TAG
-set_env SECRETS_RENAME  $SECRETS_RENAME
