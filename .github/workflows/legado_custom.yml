@@ -6,6 +6,7 @@ on:
       git_url: 
         description: 'legado git url'      
         required: true 
+        default: 'https://github.com/Summer1Solstice/legado.git'
       git_tag:
         description: '需要构建的 tag'      
         required: true 

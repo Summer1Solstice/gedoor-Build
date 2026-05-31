@@ -34,7 +34,15 @@ function app_live_together()
             $APP_WORKSPACE/app/google-services.json -i
     fi
 }
-
+function Unify_Version_Name()
+{ 
+    if [[ "$APP_TAG" == 3.* ]]; then
+        debug "统一版本号"
+        sed "/def version/c def version = \"$APP_TAG\"" $GITHUB_WORKSPACE/app/build.gradle  -i
+    else
+        debug "APP_TAG 不是以 3. 开头，跳过版本号统一"
+    fi
+}
 #apk增加签名,默认启用
 function app_sign()
 {
