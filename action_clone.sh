@@ -22,7 +22,9 @@ function init_workspace()
         fi
     fi
     git checkout $LatestTag
+    debug "当前tag为$LatestTag"
     set_env APP_UPLOAD_NAME $APP_NAME-$LatestTag
+    debug "当前上传文件名为$APP_UPLOAD_NAME"
     [[ "$APP_NAME" = "legado" ]] && \
     set_env APP_TAG    $(echo $LatestTag|grep -o '3\.[0-9\.]+')
     debug "$APP_TAG"
